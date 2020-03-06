@@ -18,4 +18,13 @@ snapcraft
 
 # install the snap (--dangerous signals this is not signed and hence not trusted)
 sudo snap install ./intel-csme-version-detection-tool_2.0.8.0_amd64.snap --dangerous
+
+# manually connect the intel-mei interface
+sudo snap connect intel-csme-version-detection-tool:intel-mei
+```
+
+## Running it ##
+
+```shell
+sudo intel-csme-version-detection-tool
 ```
