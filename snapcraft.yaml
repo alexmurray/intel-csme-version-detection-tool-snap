@@ -1,0 +1,28 @@
+name: intel-csme-version-detection-tool
+base: core18
+version: 2.0.8.0
+summary: Intel® Converged Security and Management Engine (Intel® CSME) Detection Tool
+description: |
+  The Intel® CSME Version Detection Tool assists with detection of the
+  security vulnerabilities described in recent Intel security
+  advisories.
+
+grade: stable
+confinement: strict
+
+apps:
+  intel-csme-version-detection-tool:
+    command: python3 $SNAP/intel_csme_version_detection_tool
+    plugs:
+      - audio-playback # for dmi info
+      - intel-mei
+
+parts:
+  intel-csme-version-detection-tool:
+    plugin: dump
+    source: https://downloadmirror.intel.com/28632/eng/CSME_Version_Detection_Tool_Linux.tar.gz
+
+  python:
+    plugin: nil
+    stage-packages:
+      - python3
